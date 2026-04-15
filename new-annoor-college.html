@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>An-Noor Arabic College — Established 1990 | Sri Lanka</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#C4962A;--gold-light:#E8C96A;--gold-pale:#F5E9C8;--emerald:#1A4535;--emerald-mid:#245A47;--emerald-light:#2F7A5E;--cream:#FAF7F0;--cream-2:#F2EBD9;--cream-3:#E8DEC6;--ink:#181410;--text:#3A3020;--muted:#7A6A50;--white:#FFFFFF;--shadow:0 8px 40px rgba(26,69,53,.12);}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
+::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--cream-2);}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
+
+/* NAV */
+#navbar{position:fixed;top:0;width:100%;z-index:1000;transition:all .35s;}
+#navbar.scrolled{background:rgba(26,69,53,.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(196,150,42,.25);box-shadow:0 4px 30px rgba(0,0,0,.25);}
+#navbar.top{background:transparent;}
+.nav-wrap{max-width:1280px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:70px;}
+.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.brand-seal{width:42px;height:42px;border-radius:50%;background:linear-gradient(145deg,var(--gold),#8B5E10);display:flex;align-items:center;justify-content:center;font-family:'Amiri',serif;font-size:20px;color:#fff;box-shadow:0 0 0 2px rgba(196,150,42,.4),0 0 0 5px rgba(196,150,42,.1);flex-shrink:0;}
+.brand-text{color:var(--gold-light);font-size:12.5px;font-weight:600;letter-spacing:.1em;line-height:1.2;}
+.brand-sub{display:block;color:rgba(255,255,255,.4);font-size:9.5px;letter-spacing:.18em;font-weight:300;}
+.nav-links{display:flex;gap:2.2rem;list-style:none;}
+.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:11px;letter-spacing:.13em;font-weight:500;transition:color .2s;position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .25s;}
+.nav-links a:hover{color:var(--gold-light);}
+.nav-links a:hover::after{width:100%;}
+.nav-apply{background:var(--gold);color:var(--emerald);padding:9px 22px;border-radius:2px;font-size:11px;font-weight:700;letter-spacing:.12em;text-decoration:none;transition:all .2s;}
+.nav-apply:hover{background:var(--gold-light);box-shadow:0 4px 20px rgba(196,150,42,.4);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;}
+.hamburger span{display:block;width:24px;height:2px;background:var(--gold-light);transition:all .3s;border-radius:2px;}
+
+/* MOBILE NAV */
+#mobileNav{display:none;position:fixed;inset:0;z-index:999;background:rgba(26,69,53,.98);flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;}
+#mobileNav.open{display:flex;}
+.mob-close{position:absolute;top:24px;right:24px;background:none;border:none;color:var(--gold-light);font-size:26px;cursor:pointer;}
+#mobileNav a{color:var(--gold-light);font-family:'Playfair Display',serif;font-size:1.6rem;text-decoration:none;letter-spacing:.08em;}
+
+/* HERO */
+.hero{height:100vh;min-height:680px;position:relative;overflow:hidden;display:flex;align-items:center;}
+.hero-bg{position:absolute;inset:0;background-image:url('nzmimg.jpg');background-size:cover;background-position:center 30%;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(15,35,25,.93) 0%,rgba(26,69,53,.78) 55%,rgba(20,50,35,.5) 100%);}
+.hero-geo{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cg fill='none' stroke='%23C4962A' stroke-opacity='0.055' stroke-width='.7'%3E%3Cpolygon points='50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5'/%3E%3Cpolygon points='50,18 82,34 82,66 50,82 18,66 18,34'/%3E%3Cpolygon points='50,31 69,40.5 69,59.5 50,69 31,59.5 31,40.5'/%3E%3C/g%3E%3C/svg%3E");opacity:.7;}
+.hero-content{position:relative;max-width:1280px;margin:0 auto;padding:0 2rem;width:100%;display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:center;padding-top:70px;}
+.h-eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:1.4rem;}
+.h-eyebrow::before,.h-eyebrow::after{content:'';display:block;width:28px;height:1px;background:var(--gold);}
+.h-eyebrow span{font-size:10px;letter-spacing:.22em;color:var(--gold-light);font-weight:600;}
+.h-arabic{font-family:'Amiri',serif;font-size:clamp(2.2rem,4.5vw,3.8rem);color:var(--gold);line-height:1.2;margin-bottom:.6rem;text-align:right;direction:rtl;}
+.h-title{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,5.5vw,4.8rem);font-weight:400;line-height:1.08;color:#fff;margin-bottom:1.6rem;}
+.h-title em{color:var(--gold);font-style:italic;}
+.h-desc{color:rgba(255,255,255,.62);font-size:14.5px;line-height:1.85;max-width:480px;margin-bottom:2.5rem;font-weight:300;}
+.h-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-gold{background:var(--gold);color:var(--emerald);padding:14px 32px;font-size:11px;font-weight:700;letter-spacing:.15em;text-decoration:none;border-radius:2px;transition:all .25s;display:inline-block;}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(196,150,42,.4);}
+.btn-ghost{border:1px solid rgba(196,150,42,.45);color:var(--gold-light);padding:14px 32px;font-size:11px;font-weight:600;letter-spacing:.15em;text-decoration:none;border-radius:2px;transition:all .25s;display:inline-block;}
+.btn-ghost:hover{background:rgba(196,150,42,.1);border-color:var(--gold);}
+.hero-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;}
+.hstat{background:rgba(255,255,255,.05);border:1px solid rgba(196,150,42,.18);padding:1.6rem 1.4rem;border-radius:3px;backdrop-filter:blur(6px);transition:all .25s;}
+.hstat:hover{background:rgba(255,255,255,.08);border-color:rgba(196,150,42,.45);}
+.hstat-n{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:600;color:var(--gold);line-height:1;}
+.hstat-l{font-size:10px;letter-spacing:.15em;color:rgba(255,255,255,.45);margin-top:.3rem;}
+.hero-verse{position:absolute;bottom:2.5rem;right:2rem;text-align:right;}
+.hero-verse p{font-family:'Playfair Display',serif;font-style:italic;color:rgba(255,255,255,.3);font-size:12px;}
+.hero-verse em{color:rgba(196,150,42,.6);}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.35);font-size:9.5px;letter-spacing:.18em;cursor:pointer;}
+.scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,var(--gold),transparent);animation:sp 2s ease-in-out infinite;}
+@keyframes sp{0%,100%{opacity:.4;}50%{opacity:1;}}
+
+/* TRUST BAR */
+.trust-bar{background:var(--emerald);padding:1.2rem 2rem;border-top:1px solid rgba(196,150,42,.2);border-bottom:1px solid rgba(196,150,42,.2);}
+.trust-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-around;flex-wrap:wrap;gap:1rem;}
+.trust-item{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.65);font-size:11.5px;letter-spacing:.06em;}
+.trust-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0;}
+
+/* SECTIONS */
+section{padding:6rem 2rem;}
+.sec{max-width:1280px;margin:0 auto;}
+.tag-row{display:inline-flex;align-items:center;gap:10px;margin-bottom:1rem;}
+.tag-row::before,.tag-row::after{content:'';display:block;width:24px;height:1px;background:var(--gold);}
+.tag-row span{font-size:10px;letter-spacing:.22em;color:#8B6010;font-weight:700;}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,3.2rem);font-weight:400;line-height:1.15;color:var(--emerald);margin-bottom:1rem;}
+.sec-title em{font-style:italic;color:var(--gold);}
+.sec-sub{color:var(--muted);font-size:14.5px;line-height:1.8;max-width:540px;font-weight:300;}
+
+/* ABOUT */
+.about{background:var(--white);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.about-img-block{position:relative;padding-bottom:1.5rem;padding-right:1.5rem;}
+.about-img-main{width:100%;height:420px;object-fit:cover;border-radius:4px;display:block;}
+.about-img-accent{position:absolute;bottom:0;right:0;width:52%;height:200px;object-fit:cover;border-radius:4px;border:4px solid var(--white);box-shadow:var(--shadow);}
+.about-badge{position:absolute;top:1.5rem;left:-1rem;background:var(--emerald);color:var(--gold-light);padding:.8rem 1.2rem;border-radius:3px;text-align:center;box-shadow:var(--shadow);z-index:1;}
+.about-badge strong{display:block;font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold);line-height:1;}
+.about-badge span{font-size:9px;letter-spacing:.15em;}
+.mission-box{background:var(--emerald);padding:1.8rem;border-radius:3px;margin-top:2rem;border-left:3px solid var(--gold);}
+.mission-box h4{font-family:'Amiri',serif;font-size:1.15rem;color:var(--gold-light);margin-bottom:.7rem;}
+.mission-box p{font-size:13.5px;line-height:1.85;color:rgba(255,255,255,.72);font-weight:300;}
+.timeline{margin-top:2rem;}
+.tl-item{display:flex;gap:1.4rem;margin-bottom:1.6rem;position:relative;}
+.tl-item::before{content:'';position:absolute;left:26px;top:36px;bottom:-26px;width:1px;background:linear-gradient(to bottom,rgba(196,150,42,.5),transparent);}
+.tl-item:last-child::before{display:none;}
+.tl-yr{flex-shrink:0;width:52px;height:52px;background:var(--emerald);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--gold-light);letter-spacing:.04em;border:2px solid rgba(196,150,42,.3);}
+.tl-body{padding-top:10px;}
+.tl-body h4{font-family:'Playfair Display',serif;font-size:1rem;color:var(--emerald);margin-bottom:2px;}
+.tl-body p{font-size:12px;color:var(--muted);line-height:1.65;}
+
+/* GALLERY STRIP */
+.gallery-strip{background:var(--cream-2);overflow:hidden;}
+.gallery-row{display:grid;grid-template-columns:repeat(5,1fr);}
+.gal-item{position:relative;overflow:hidden;height:240px;}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease,filter .5s;}
+.gal-item:hover img{transform:scale(1.07);filter:brightness(.9);}
+.gal-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,69,53,.8),transparent);opacity:0;transition:opacity .3s;}
+.gal-item:hover .gal-overlay{opacity:1;}
+.gal-label{position:absolute;bottom:1rem;left:1rem;color:#fff;font-size:10.5px;letter-spacing:.12em;font-weight:600;opacity:0;transform:translateY(6px);transition:all .3s;}
+.gal-item:hover .gal-label{opacity:1;transform:translateY(0);}
+
+/* LOCATION */
+.location{background:var(--cream);}
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:3rem;}
+.loc-img-wrap{position:relative;}
+.loc-img{width:100%;height:380px;object-fit:cover;border-radius:4px;display:block;}
+.loc-badges{position:absolute;bottom:-1rem;right:-1rem;display:flex;flex-direction:column;gap:.8rem;}
+.loc-badge{background:var(--emerald);padding:1rem 1.2rem;border-radius:3px;box-shadow:var(--shadow);border-left:3px solid var(--gold);}
+.loc-badge strong{display:block;font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--gold);line-height:1;}
+.loc-badge span{font-size:9px;letter-spacing:.14em;color:rgba(255,255,255,.55);}
+.adv-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.adv{background:var(--white);padding:1.2rem;border-radius:3px;border-top:2px solid var(--gold);box-shadow:0 2px 16px rgba(0,0,0,.06);}
+.adv h4{font-size:11px;font-weight:700;color:var(--emerald);letter-spacing:.06em;margin-bottom:.35rem;}
+.adv p{font-size:11.5px;color:var(--muted);line-height:1.6;}
+
+/* ACADEMICS */
+.academics{background:var(--emerald);position:relative;overflow:hidden;}
+.academics::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cg fill='none' stroke='%23C4962A' stroke-opacity='0.05' stroke-width='.7'%3E%3Cpolygon points='40,4 76,22 76,58 40,76 4,58 4,22'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none;}
+.academics .sec-title{color:#fff;}.academics .sec-sub{color:rgba(255,255,255,.58);}
+.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+.prog-card{background:rgba(255,255,255,.04);border:1px solid rgba(196,150,42,.18);border-radius:3px;overflow:hidden;transition:all .3s;}
+.prog-card:hover{background:rgba(255,255,255,.07);border-color:rgba(196,150,42,.5);transform:translateY(-4px);}
+.prog-img{width:100%;height:160px;object-fit:cover;display:block;filter:brightness(.82);transition:filter .3s;}
+.prog-card:hover .prog-img{filter:brightness(.92);}
+.prog-body{padding:1.6rem;}
+.prog-icon{font-family:'Amiri',serif;font-size:1.8rem;color:var(--gold);margin-bottom:.75rem;}
+.prog-card h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--gold-light);margin-bottom:.5rem;}
+.prog-card p{font-size:12px;color:rgba(255,255,255,.52);line-height:1.75;margin-bottom:1rem;}
+.prog-tag{display:inline-block;padding:3px 11px;background:rgba(196,150,42,.14);color:var(--gold-light);font-size:9.5px;letter-spacing:.12em;border-radius:2px;}
+.cert-section{margin-top:4rem;}
+.cert-title{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold-light);margin-bottom:.4rem;}
+.cert-sub{font-size:12px;color:rgba(255,255,255,.45);margin-bottom:1.5rem;}
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.cert{background:rgba(255,255,255,.04);border:1px solid rgba(196,150,42,.13);padding:1rem 1.2rem;border-radius:3px;display:flex;align-items:center;gap:10px;}
+.cert-n{font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--gold);font-weight:600;flex-shrink:0;min-width:32px;}
+.cert-lbl{font-size:11px;color:rgba(255,255,255,.58);line-height:1.45;}
+
+/* FACILITIES */
+.facilities{background:var(--white);}
+.fac-intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-bottom:3.5rem;}
+.fac-intro-img{width:100%;height:340px;object-fit:cover;border-radius:4px;display:block;box-shadow:var(--shadow);}
+.fac-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.fac{border:1px solid var(--cream-3);border-radius:3px;overflow:hidden;transition:all .25s;}
+.fac:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 12px 40px rgba(26,69,53,.12);}
+.fac-img{width:100%;height:150px;object-fit:cover;display:block;}
+.fac-top{background:var(--emerald);padding:1rem 1.2rem;display:flex;align-items:center;gap:10px;}
+.fac-ico{width:36px;height:36px;border-radius:50%;background:rgba(196,150,42,.15);border:1px solid rgba(196,150,42,.35);display:flex;align-items:center;justify-content:center;font-family:'Amiri',serif;font-size:17px;color:var(--gold);flex-shrink:0;}
+.fac-top h3{font-family:'Playfair Display',serif;font-size:1rem;color:var(--gold-light);}
+.fac-bot{padding:1.1rem;background:var(--cream);}
+.fac-bot p{font-size:12px;color:var(--muted);line-height:1.7;}
+.campus-info{margin-top:3rem;display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
+.ci{background:var(--cream-2);padding:1.1rem 1.3rem;border-left:3px solid var(--gold);border-radius:0 3px 3px 0;}
+.ci h4{font-size:11px;font-weight:700;color:var(--emerald);letter-spacing:.07em;}
+.ci p{font-size:11.5px;color:var(--muted);margin-top:2px;}
+
+/* ADMINISTRATION */
+.administration{background:var(--cream);}
+.admin-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem;}
+.admin-card{background:var(--white);border-radius:3px;overflow:hidden;border:1px solid var(--cream-3);transition:all .25s;}
+.admin-card:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:var(--shadow);}
+.admin-top{background:var(--emerald);padding:2rem;text-align:center;position:relative;overflow:hidden;}
+.admin-top::before{content:'';position:absolute;top:-40px;right:-40px;width:120px;height:120px;background:radial-gradient(circle,rgba(196,150,42,.12),transparent 70%);}
+.admin-ava{width:80px;height:80px;border-radius:50%;margin:0 auto 1rem;overflow:hidden;border:2.5px solid var(--gold);}
+.admin-ava img{width:100%;height:100%;object-fit:cover;}
+.admin-ava-fb{width:100%;height:100%;background:rgba(196,150,42,.15);display:flex;align-items:center;justify-content:center;font-family:'Amiri',serif;font-size:30px;color:var(--gold);}
+.admin-role{font-size:9.5px;letter-spacing:.18em;color:var(--gold-light);margin-bottom:.4rem;font-weight:600;}
+.admin-name{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;}
+.admin-body{padding:1.4rem;}
+.admin-body p{font-size:12px;color:var(--muted);line-height:1.75;}
+.tag-pill{display:inline-block;padding:3px 10px;background:rgba(26,69,53,.08);color:var(--emerald);font-size:10px;border-radius:2px;margin:4px 3px 0 0;letter-spacing:.04em;}
+.board-wrap{margin-top:4rem;}
+.board-quote{background:var(--emerald);padding:2.2rem 2.5rem;border-radius:3px;border-left:3px solid var(--gold);margin-bottom:1.5rem;}
+.board-quote p{font-family:'Playfair Display',serif;font-style:italic;font-size:1.1rem;color:var(--gold-light);line-height:1.65;}
+.board-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+.bm{background:var(--white);padding:1.2rem;border:1px solid var(--cream-3);border-radius:3px;text-align:center;}
+.bm h4{font-size:12px;color:var(--emerald);font-weight:600;margin-bottom:2px;}
+.bm p{font-size:10px;color:var(--muted);letter-spacing:.1em;}
+
+/* ACHIEVEMENTS */
+.achievements{background:var(--emerald);position:relative;overflow:hidden;}
+.achievements .sec-title{color:#fff;}.achievements .sec-sub{color:rgba(255,255,255,.58);}
+.ach-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem;}
+.ach-s{text-align:center;padding:2rem 1rem;border:1px solid rgba(196,150,42,.18);border-radius:3px;transition:border-color .25s;}
+.ach-s:hover{border-color:rgba(196,150,42,.55);}
+.ach-n{font-family:'Playfair Display',serif;font-size:3.6rem;color:var(--gold);font-weight:400;line-height:1;display:block;}
+.ach-l{font-size:10px;letter-spacing:.15em;color:rgba(255,255,255,.45);margin-top:.4rem;display:block;}
+.ach-feat{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem;}
+.af{background:rgba(255,255,255,.05);border:1px solid rgba(196,150,42,.18);padding:2rem;border-radius:3px;}
+.af-tag{display:inline-block;background:rgba(196,150,42,.15);color:var(--gold-light);padding:3px 10px;font-size:9.5px;letter-spacing:.12em;border-radius:2px;margin-bottom:1rem;}
+.af h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;margin-bottom:.7rem;}
+.af p{font-size:12px;color:rgba(255,255,255,.52);line-height:1.75;}
+.ach-img-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:1.5rem;}
+.ach-img{width:100%;height:180px;object-fit:cover;border-radius:3px;border:1px solid rgba(196,150,42,.2);filter:brightness(.8);transition:all .3s;}
+.ach-img:hover{filter:brightness(1);border-color:rgba(196,150,42,.55);}
+
+/* CONTACT */
+.contact{background:var(--white);}
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:4rem;margin-top:3rem;align-items:start;}
+.cinfo{background:var(--cream);padding:1.4rem;border-radius:3px;border-left:3px solid var(--gold);margin-bottom:1rem;}
+.cinfo-lbl{font-size:9.5px;letter-spacing:.18em;color:var(--gold);font-weight:700;margin-bottom:.4rem;}
+.cinfo-val{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--emerald);}
+.cinfo-sub{font-size:11.5px;color:var(--muted);margin-top:2px;}
+.cmap-img{width:100%;height:190px;object-fit:cover;border-radius:3px;margin-top:1rem;border:1px solid var(--cream-3);}
+.cform{background:var(--emerald);padding:2.5rem;border-radius:3px;}
+.cform h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold-light);margin-bottom:1.5rem;}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+.fg{margin-bottom:1rem;}
+.fg label{display:block;font-size:9.5px;letter-spacing:.14em;color:rgba(255,255,255,.48);margin-bottom:.4rem;font-weight:600;}
+.fg input,.fg select,.fg textarea{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(196,150,42,.22);border-radius:2px;padding:10px 14px;color:#fff;font-family:'DM Sans',sans-serif;font-size:13px;transition:border-color .2s;outline:none;}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.22);}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold);}
+.fg select{appearance:none;cursor:pointer;}
+.fg textarea{resize:vertical;min-height:100px;}
+.fg select option{background:#1A4535;}
+.fsub{width:100%;background:var(--gold);color:var(--emerald);border:none;padding:14px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:.15em;cursor:pointer;border-radius:2px;transition:all .25s;margin-top:.5rem;}
+.fsub:hover{background:var(--gold-light);box-shadow:0 6px 20px rgba(196,150,42,.4);}
+
+/* FOOTER */
+footer{background:#141210;color:rgba(255,255,255,.55);}
+.footer-top{padding:4rem 2rem 2.5rem;}
+.footer-inner{max-width:1280px;margin:0 auto;}
+.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;}
+.fb h2{font-family:'Amiri',serif;font-size:1.5rem;color:var(--gold-light);margin-bottom:.2rem;}
+.fb .since{font-size:9.5px;letter-spacing:.18em;color:rgba(196,150,42,.5);margin-bottom:.8rem;}
+.fb p{font-size:12.5px;line-height:1.8;margin-bottom:1rem;font-weight:300;}
+.fstats{display:flex;gap:1.5rem;}
+.fst strong{display:block;font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--gold);}
+.fst span{font-size:9.5px;letter-spacing:.1em;}
+.fcol h4{font-size:9.5px;letter-spacing:.18em;color:var(--gold-light);font-weight:700;margin-bottom:1rem;}
+.fcol a,.fcol p{display:block;font-size:12px;color:rgba(255,255,255,.45);text-decoration:none;margin-bottom:.5rem;transition:color .2s;}
+.fcol a:hover{color:var(--gold-light);}
+.footer-bot{border-top:1px solid rgba(255,255,255,.07);padding:1.5rem 2rem;}
+.fbot-inner{max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.fverse{font-family:'Playfair Display',serif;font-style:italic;font-size:12.5px;color:rgba(255,255,255,.25);}
+.fverse em{color:rgba(196,150,42,.55);}
+.fcopy{font-size:11px;color:rgba(255,255,255,.25);}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease;}
+.fade-in.visible{opacity:1;transform:translateY(0);}
+.fade-in-l{opacity:0;transform:translateX(-28px);transition:opacity .65s ease,transform .65s ease;}
+.fade-in-l.visible{opacity:1;transform:translateX(0);}
+.fade-in-r{opacity:0;transform:translateX(28px);transition:opacity .65s ease,transform .65s ease;}
+.fade-in-r.visible{opacity:1;transform:translateX(0);}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .hero-content{grid-template-columns:1fr;gap:3rem;}
+  .hero-stats{grid-template-columns:repeat(4,1fr);}
+  .hero-verse{display:none;}
+  .about-grid,.loc-grid,.fac-intro,.contact-grid{grid-template-columns:1fr;gap:2.5rem;}
+  .prog-grid,.fac-grid{grid-template-columns:repeat(2,1fr);}
+  .admin-grid{grid-template-columns:repeat(2,1fr);}
+  .ach-grid{grid-template-columns:repeat(2,1fr);}
+  .cert-grid{grid-template-columns:repeat(2,1fr);}
+  .board-grid{grid-template-columns:repeat(2,1fr);}
+  .fgrid{grid-template-columns:1fr 1fr;gap:2rem;}
+  .gallery-row{grid-template-columns:repeat(3,1fr);}
+  .gallery-row .gal-item:nth-child(4),.gallery-row .gal-item:nth-child(5){display:none;}
+}
+@media(max-width:768px){
+  section{padding:4rem 1.25rem;}
+  #navbar .nav-links,#navbar .nav-apply{display:none;}
+  .hamburger{display:flex;}
+  .hero-content{padding:2.5rem 1.25rem;padding-top:calc(70px + 2rem);}
+  .hero-stats{grid-template-columns:repeat(2,1fr);}
+  .prog-grid,.fac-grid,.cert-grid,.ach-feat,.ach-img-row,.campus-info{grid-template-columns:1fr;}
+  .admin-grid,.ach-grid{grid-template-columns:1fr;}
+  .board-grid{grid-template-columns:repeat(2,1fr);}
+  .adv-grid{grid-template-columns:1fr;}
+  .fac-intro-img{height:240px;}
+  .fr{grid-template-columns:1fr;}
+  .fgrid{grid-template-columns:1fr;gap:2rem;}
+  .fbot-inner{flex-direction:column;text-align:center;}
+  .gallery-row{grid-template-columns:repeat(2,1fr);}
+  .gallery-row .gal-item:nth-child(4){display:block;}
+  .gallery-row .gal-item:nth-child(5){display:none;}
+  .h-btns{flex-direction:column;}
+  .about-img-accent{display:none;}
+  .about-badge{left:.5rem;}
+  .loc-badges{right:.5rem;bottom:.5rem;}
+}
+@media(max-width:480px){
+  .hero-stats{grid-template-columns:repeat(2,1fr);}
+  .board-grid{grid-template-columns:1fr 1fr;}
+  .trust-inner{flex-direction:column;align-items:flex-start;gap:.75rem;}
+  .gallery-row{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- MOBILE NAV -->
+<div id="mobileNav">
+  <button class="mob-close" onclick="closeMob()">✕</button>
+  <a href="#about" onclick="closeMob()">About</a>
+  <a href="#academics" onclick="closeMob()">Academics</a>
+  <a href="#facilities" onclick="closeMob()">Facilities</a>
+  <a href="#administration" onclick="closeMob()">Administration</a>
+  <a href="#achievements" onclick="closeMob()">Achievements</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar" class="top">
+  <div class="nav-wrap">
+    <a href="#" class="nav-brand">
+      <div class="brand-seal"><img src="download.jpeg" alt="" width="40" height="40" style="border-radius: 50%;"></div>
+      <div>
+        <div class="brand-text">AN-NOOR ARABIC COLLEGE</div>
+        <span class="brand-sub">SINCE 1990 · SRI LANKA</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#academics">ACADEMICS</a></li>
+      <li><a href="#facilities">FACILITIES</a></li>
+      <li><a href="#administration">ADMINISTRATION</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+    <a href="#contact" class="nav-apply">APPLY 2026</a>
+    <button class="hamburger" onclick="openMob()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-geo"></div>
+  <div class="hero-content">
+    <div>
+      <div class="h-arabic"></div>
+      <h1 class="h-title">Nurturing<br><em>Islamic Scholars</em><br>for Tomorrow</h1>
+      <p class="h-desc">A beacon of Islamic education in Sri Lanka, producing generations of scholars dedicated to preserving and promoting Islamic knowledge for over three decades.</p>
+      <div class="h-btns">
+        <a href="#contact" class="btn-gold">APPLY NOW 2026</a>
+        <a href="#about" class="btn-ghost">DISCOVER MORE</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-n">30<sup style="font-size:1.3rem">+</sup></div><div class="hstat-l">YEARS OF EXCELLENCE</div></div>
+      <div class="hstat"><div class="hstat-n">600<sup style="font-size:1.3rem">+</sup></div><div class="hstat-l">HAFIZ &amp; AALIMS</div></div>
+      <div class="hstat"><div class="hstat-n">250<sup style="font-size:1.3rem">+</sup></div><div class="hstat-l">ACTIVE STUDENTS</div></div>
+      <div class="hstat"><div class="hstat-n">100<sup style="font-size:1.3rem">+</sup></div><div class="hstat-l">GRADUATE SCHOLARS</div></div>
+    </div>
+  </div>
+  <div class="hero-verse"><p>"And whoever relies upon Allah — then He is sufficient for him." <em>— Quran 65:3</em></p></div>
+  <div class="hero-scroll" onclick="document.getElementById('trust').scrollIntoView({behavior:'smooth'})">
+    <div class="scroll-line"></div><span>SCROLL</span>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar" id="trust">
+  <div class="trust-inner">
+    <div class="trust-item"><div class="trust-dot"></div><span>First Arabic College with Integrated Hifz Program in Sri Lanka</span></div>
+    <div class="trust-item"><div class="trust-dot"></div><span>Al-Azhar University Scholarship Recipients</span></div>
+    <div class="trust-item"><div class="trust-dot"></div><span>Government Accredited O/L &amp; A/L Programs</span></div>
+    <div class="trust-item"><div class="trust-dot"></div><span>30+ Years of Uninterrupted Islamic Education</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ ABOUT ═══════════════════ -->
+<section class="about" id="about">
+  <div class="sec">
+    <div class="about-grid">
+
+      <!-- IMAGE BLOCK with real Unsplash images -->
+      <div class="about-img-block fade-in-l">
+        <!-- Main: Quran/Islamic study outdoors — warm, natural, authentic -->
+        <img class="about-img-main"
+          src="IMG_001.JPG"
+          alt="Students at An-Noor Arabic College"
+          onerror="this.src='https://images.unsplash.com/photo-1519817650390-64a93db51149?w=800&auto=format&fit=crop&q=80'">
+        <!-- Accent: Quran book close-up -->
+        <img class="about-img-accent"
+          src="IMG_001.2.JPG"
+          alt="Quranic study"
+          onerror="this.src='https://images.unsplash.com/photo-1549576490-b0b4831ef60a?w=500&auto=format&fit=crop&q=80'">
+        <div class="about-badge"><strong>1990</strong><span>ESTABLISHED</span></div>
+      </div>
+
+      <!-- TEXT -->
+      <div class="fade-in-r">
+        <div class="tag-row"><span>OUR STORY</span></div>
+        <h2 class="sec-title">History &amp; <em>Mission</em></h2>
+        <p class="sec-sub">Three decades of unwavering commitment to Islamic education and spiritual growth, founded in the heart of Sri Lanka's North Western Province.</p>
+        <div class="mission-box">
+          <h4>Our Sacred Mission</h4>
+          <p>Islam is a vibrant and divinely blessed religion capable of addressing societal needs through time. We established our institution to ensure Islam thrives as a living religion in Sri Lanka, nurturing scholars equipped to serve the community with wisdom, integrity, and purpose.</p>
+        </div>
+        <div class="timeline">
+          <div class="tl-item"><div class="tl-yr">1990</div><div class="tl-body"><h4>Founded</h4><p>Started with 15 students at Siyambalagasakotuwa Jummah Masjid — the beginning of a lasting legacy.</p></div></div>
+          <div class="tl-item"><div class="tl-yr">1991</div><div class="tl-body"><h4>First Land Donation</h4><p>40 perches donated by Al-Haj Ahamed Lebbe Mathisam, reflecting deep community trust.</p></div></div>
+          <div class="tl-item"><div class="tl-yr">1993</div><div class="tl-body"><h4>International Recognition</h4><p>First student scholarship to Al-Azhar University, Egypt — our global reach begins.</p></div></div>
+          <div class="tl-item"><div class="tl-yr">1996</div><div class="tl-body"><h4>First Graduation</h4><p>4 students received the prestigious 'An-Noori' degree — our first milestone of success.</p></div></div>
+          <div class="tl-item"><div class="tl-yr">1999</div><div class="tl-body"><h4>Major Expansion</h4><p>Saudi philanthropist Abdullah bin Mansour Zamil expanded the campus to 200 perches.</p></div></div>
+          <div class="tl-item"><div class="tl-yr">2000</div><div class="tl-body"><h4>Modern Campus</h4><p>Relocated to permanent campus with modern, purpose-built facilities — a new era.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ GALLERY STRIP ═══════════════════ -->
+<div class="gallery-strip">
+  <div class="gallery-row">
+    <!-- 5 real contextual images -->
+    <div class="gal-item">
+      <img src="OurClg.JPG" alt="Campus building" onerror="this.style.background='#1A4535'">
+      <div class="gal-overlay"></div><div class="gal-label">OUR COLLEGE</div>
+    </div>
+    <div class="gal-item">
+      <img src="Hifl.JPG" alt="Quran memorization" onerror="this.style.background='#1A4535'">
+      <div class="gal-overlay"></div><div class="gal-label">AL-QURAN MEMORIZATION</div>
+    </div>
+    <div class="gal-item">
+      <img src="Library.JPG" alt="Islamic library" onerror="this.style.background='#1A4535'">
+      <div class="gal-overlay"></div><div class="gal-label">LIBRARY</div>
+    </div>
+    <div class="gal-item">
+      <img src="prayerroom.JPG" alt="Mosque prayer" onerror="this.style.background='#1A4535'">
+      <div class="gal-overlay"></div><div class="gal-label">PRAYER FACILITY</div>
+    </div>
+    <div class="gal-item">
+      <img src="GRADUATION.jpeg" alt="Graduation day" onerror="this.style.background='#1A4535'">
+      <div class="gal-overlay"></div><div class="gal-label">GRADUATION DAY</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ LOCATION ═══════════════════ -->
+<section class="location" id="location">
+  <div class="sec">
+    <div class="fade-in">
+      <div class="tag-row"><span>OUR LOCATION</span></div>
+      <h2 class="sec-title">Strategically <em>Situated</em></h2>
+      <p class="sec-sub">Nestled in the serene North Western Province, our campus offers the ideal environment for focused Islamic learning and spiritual development.</p>
+    </div>
+    <div class="loc-grid">
+      <div class="loc-img-wrap fade-in-l">
+        <!-- Sri Lanka lush green landscape — peaceful, rural feel -->
+        <img class="loc-img"
+          src="KeyLocation.JPG"
+          alt="Kurunegala District Sri Lanka"
+          onerror="this.src='">
+        <div class="loc-badges">
+          <div class="loc-badge"><strong>90 km</strong><span>FROM COLOMBO</span></div>
+          <div class="loc-badge"><strong>200 P</strong><span>CAMPUS AREA</span></div>
+        </div>
+      </div>
+      <div class="fade-in-r">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--emerald);margin-bottom:.5rem;">Siyambalagasakotuwa</h3>
+        <p style="color:var(--muted);font-size:13.5px;line-height:1.8;margin-bottom:1.5rem;">Kurunegala District, Kuliyapitiya division, North Western Province, Sri Lanka. Located on the Narammala-Wariyapola main road, approximately 90 km from Colombo — easily accessible yet peacefully removed from city distractions.</p>
+        <div class="adv-grid">
+          <div class="adv"><h4>PEACEFUL ENVIRONMENT</h4><p>Tranquil surroundings perfect for focused learning and deep spiritual growth.</p></div>
+          <div class="adv"><h4>MUSLIM COMMUNITY</h4><p>Vibrant Muslim-majority village nurturing Islamic values and rich cultural heritage.</p></div>
+          <div class="adv"><h4>GREAT CONNECTIVITY</h4><p>Easy access via main roads and reliable public transportation from all regions.</p></div>
+          <div class="adv"><h4>NEAR MAJOR SCHOOLS</h4><p>Adjacent to Madeena National School and the Jalalullah Jummah Masjid.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ ACADEMICS ═══════════════════ -->
+<section class="academics" id="academics">
+  <div class="sec" style="position:relative;">
+    <div class="fade-in">
+      <div class="tag-row"><span style="color:rgba(196,150,42,.75)">ACADEMIC EXCELLENCE</span></div>
+      <h2 class="sec-title">Comprehensive <em style="color:var(--gold)">Programs</em></h2>
+      <p class="sec-sub">A 9-year educational journey integrating Qur'an memorization, advanced Islamic scholarship, and government-accredited modern qualifications.</p>
+    </div>
+    <div class="prog-grid fade-in">
+
+      <!-- Card 1: Hifz — Quran memorization image -->
+      <div class="prog-card">
+        <img class="prog-img"
+          src="hifl2.JPG"
+          alt="Quran memorization program"
+          onerror="this.src='https://images.unsplash.com/photo-1549576490-b0b4831ef60a?w=600&auto=format&fit=crop&q=80'">
+        <div class="prog-body">
+          <div class="prog-icon"></div>
+          <h3>Al-Qur'an Mmemorization  Program</h3>
+          <p>Complete Qur'an memorization over 3 years, covering all 30 Juz' with proper Tajweed. Students memorize 6–12 Juz' per year alongside the school curriculum, earning the honoured Al-Hafiz certification.</p>
+          <span class="prog-tag">3-YEAR PROGRAM</span>
+        </div>
+      </div>
+
+      <!-- Card 2: Shariah — library / Islamic books image -->
+      <div class="prog-card">
+        <img class="prog-img"
+          src="IslamicSty.JPG"
+          alt="Shariah studies and Islamic library"
+          onerror="this.src='https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&auto=format&fit=crop&q=80'">
+        <div class="prog-body">
+          <div class="prog-icon"></div>
+          <h3>Islamic Studies</h3>
+          <p>Advanced Islamic jurisprudence and theology covering Fiqh, Hadith, Tafsir, and Aqeedah — earning multiple prestigious certifications up to Shari'ah Higher (Moulavi, Al-Alim) level.</p>
+          <span class="prog-tag">6-YEAR ADVANCED</span>
+        </div>
+      </div>
+
+      <!-- Card 3: Modern — students in class -->
+      <div class="prog-card">
+        <img class="prog-img"
+          src="lab.JPG"
+          alt="Modern education classroom"
+          onerror="this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&auto=format&fit=crop&q=80'">
+        <div class="prog-body">
+          <div class="prog-icon"></div>
+          <h3>Government Curriculum</h3>
+          <p>Government-accredited G.C.E. O/L and A/L examinations, English language training, IT Diploma, and essential vocational skills — preparing graduates to serve both deen and the modern world.</p>
+          <span class="prog-tag">GOVERNMENT CERTIFIED</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cert-section fade-in">
+      <div class="cert-title">Complete Qualification Portfolio</div>
+      <div class="cert-sub">Students graduate with 9 comprehensive certifications spanning Islamic scholarship and modern education</div>
+      <div class="cert-grid">
+        <div class="cert"><div class="cert-n">01</div><div class="cert-lbl">Al-Qur'an Mmemorization (Hafiz) Certificate</div></div>
+        <div class="cert"><div class="cert-n">02</div><div class="cert-lbl">G.C.E. Ordinary Level (O/L) Certificate</div></div>
+        <div class="cert"><div class="cert-n">03</div><div class="cert-lbl">Ahadiyya Examination Certificate</div></div>
+        <div class="cert"><div class="cert-n">04</div><div class="cert-lbl">Dharmacharya Examination Certificate</div></div>
+        <div class="cert"><div class="cert-n">05</div><div class="cert-lbl">Al-Alim Muthawassitha Certificate</div></div>
+        <div class="cert"><div class="cert-n">06</div><div class="cert-lbl">Al-Alim Thanawiyya Certificate</div></div>
+        <div class="cert"><div class="cert-n">07</div><div class="cert-lbl">G.C.E. Advanced Level (A/L) Certificate</div></div>
+        <div class="cert"><div class="cert-n">08</div><div class="cert-lbl">Islamic Studies (Moulavi, Al-Alim)</div></div>
+        <div class="cert"><div class="cert-n">09</div><div class="cert-lbl">Dip in English / IT</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FACILITIES ═══════════════════ -->
+<section class="facilities" id="facilities">
+  <div class="sec">
+    <!-- Intro row with campus overview photo -->
+    <div class="fac-intro">
+      <div class="fade-in-l">
+        <div class="tag-row"><span>WORLD-CLASS FACILITIES</span></div>
+        <h2 class="sec-title">Modern <em>Infrastructure</em></h2>
+        <p class="sec-sub">Comprehensive facilities built on 200 perches of land, thoughtfully designed for holistic education, worship, and comfortable residential life.</p>
+        <p style="color:var(--muted);font-size:13.5px;line-height:1.8;margin-top:1rem;">Our purpose-built campus includes dedicated academic, residential, and spiritual facilities — all maintained to the highest standards to create the perfect environment for learning and worship.</p>
+      </div>
+      <!-- Campus aerial / school building image -->
+      <img class="fac-intro-img fade-in-r"
+        src="OurClg.JPG"
+        alt="An-Noor Arabic College campus overview"
+        onerror="this.src='https://images.unsplash.com/photo-1562774053-701939374585?w=900&auto=format&fit=crop&q=80'">
+    </div>
+
+    <div class="fac-grid fade-in">
+      <!-- Each card has a representative Unsplash photo -->
+      <div class="fac">
+        <img class="fac-img" src="classrom.JPG" alt="Classrooms" onerror="this.style.background='#1A4535'">
+        <div class="fac-top"><h3>Modern Classrooms</h3></div>
+        <div class="fac-bot"><p>Well-equipped, ventilated classrooms with modern teaching aids. Two-story block at 26×125 ft, designed for both large lectures and intimate study groups.</p></div>
+      </div>
+      <div class="fac">
+        <img class="fac-img" src="prayerroom.JPG" alt="Mosque" onerror="this.style.background='#1A4535'">
+        <div class="fac-top"><h3>Prayer Mosque</h3></div>
+        <div class="fac-bot"><p>A beautiful two-story mosque (30×40 ft) serving as the spiritual heart of campus — used for daily prayers, Jumu'ah, and year-round congregational worship.</p></div>
+      </div>
+      <div class="fac">
+        <img class="fac-img" src="IMG_001.JPG" alt="Dormitory" onerror="this.style.background='#1A4535'">
+        <div class="fac-top"><h3>Student Dormitories</h3></div>
+        <div class="fac-bot"><p>Safe, three-story boarding facility (30×125 ft) providing students a comfortable, secure home — with all essential daily amenities for a productive residential life.</p></div>
+      </div>
+      <div class="fac">
+        <img class="fac-img" src="Library.JPG" alt="Library" onerror="this.style.background='#1A4535'">
+        <div class="fac-top"><h3>Islamic Library</h3></div>
+        <div class="fac-bot"><p>Extensive collection of Islamic and academic literature in Arabic, English, Tamil, and Sinhala — supporting research, scholarship, and independent study for all students.</p></div>
+      </div>
+      <div class="fac">
+        <img class="fac-img" src="Dining Hall.JPG" alt="Dining Hall" onerror="this.style.background='#1A4535'">
+        <div class="fac-top"><h3>Dining Hall</h3></div>
+        <div class="fac-bot"><p>Spacious two-story dining area (30×40 ft) serving fresh, nutritious halal meals daily — prepared under strict hygienic conditions to nourish students' bodies and minds.</p></div>
+      </div>
+      <div class="fac">
+        <img class="fac-img" src="itlab.JPG" alt="Computer Lab" onerror="this.style.background='#1A4535'">
+        <div class="fac-top"><h3>Computer Lab</h3></div>
+        <div class="fac-bot"><p>Modern technology centre equipped with up-to-date computers for digital literacy, IT Diploma training, and essential technical skills to prepare students for today's world.</p></div>
+      </div>
+      <div class="fac" style="grid-column:span 1;">
+        <img class="fac-img" src="lab.JPG" alt="Computer Lab" onerror="this.style.background='#1A4535'">
+        <div class="fac-top"><h3>Science Lab</h3></div>
+        <div class="fac-bot"><p>Modern technology centre equipped with up-to-date computers for digital literacy, IT Diploma training, and essential technical skills to prepare students for today's world.</p></div>
+      </div>
+    </div>
+
+    <div class="campus-info fade-in">
+      <div class="ci"><h4>TOTAL COLLEGE AREA</h4><p>200 perches of purpose-developed land</p></div>
+      <div class="ci"><h4>MULTIPURPOSE BUILDING</h4><p>30 × 134 ft for diverse campus activities</p></div>
+      <div class="ci"><h4>HIFZ SECTION</h4><p>25 × 110 ft dedicated memorization area</p></div>
+      <div class="ci"><h4>TEACHER HOUSING</h4><p>On-campus staff quarters for resident faculty</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ ADMINISTRATION ═══════════════════ -->
+<section class="administration" id="administration">
+  <div class="sec">
+    <div class="fade-in">
+      <div class="tag-row"><span>LEADERSHIP</span></div>
+      <h2 class="sec-title">Experienced <em>Administration</em></h2>
+      <p class="sec-sub">Guided by wisdom, collective responsibility, and a long-term vision for Islamic education in Sri Lanka since 1990.</p>
+    </div>
+
+    <div class="admin-grid fade-in">
+      <!-- Principal — respected scholar portrait style -->
+      <div class="admin-card">
+        <div class="admin-top">
+          <div class="admin-ava">
+            <img src="mudeer.JPG"
+              alt="Principal Ash-Sheikh S.D. Munawwar"
+              onerror="this.style.display='none';this.parentElement.innerHTML='<div class=admin-ava-fb>ش</div>';">
+          </div>
+          <div class="admin-role">PRINCIPAL</div>
+          <div class="admin-name">Ash-Sheikh S.D. Munawwar</div>
+        </div>
+        <div class="admin-body">
+          <p>Leading the institution since its founding in 1990 with unwavering dedication and visionary leadership. A graduate of Deeniya and Jamia Binnuria, guiding 30+ years of Islamic educational excellence.</p>
+          <div style="margin-top:1rem;">
+            <span class="tag-pill">30+ Years Service</span>
+            <span class="tag-pill">Deeni</span>
+            <span class="tag-pill">Binnoori</span>
+          </div>
+        </div>
+      </div>
+      <!-- Chairman -->
+      <div class="admin-card">
+        <div class="admin-top">
+          <div class="admin-ava">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&auto=format&fit=crop&q=80"
+              alt="Chairman A.H.M. Haniffa"
+              onerror="this.style.display='none';this.parentElement.innerHTML='<div class=admin-ava-fb>ر</div>';">
+          </div>
+          <div class="admin-role">CHAIRMAN</div>
+          <div class="admin-name">A.H.M. Haniffa</div>
+        </div>
+        <div class="admin-body">
+          <p>Former Deputy Principal of Madeena National School, bringing decades of educational administration experience and deep community leadership to guide our institution's strategic direction.</p>
+          <div style="margin-top:1rem;">
+            <span class="tag-pill">Educational Expert</span>
+            <span class="tag-pill">Community Leader</span>
+          </div>
+        </div>
+      </div>
+      <!-- Staff -->
+      <div class="admin-card">
+        <div class="admin-top">
+          <div class="admin-ava">
+            <img src="staff.JPG"
+              alt="Teaching staff"
+              onerror="this.style.display='none';this.parentElement.innerHTML='<div class=admin-ava-fb>أ</div>';">
+          </div>
+          <div class="admin-role">TEACHING STAFF</div>
+          <div class="admin-name">15+ Esteemed Sheikhs</div>
+        </div>
+        <div class="admin-body">
+          <p>Our distinguished faculty includes Vice Principals Ash-Sheikh U.R. Abdus Sattar and Ash-Sheikh A. Abu Shuhaira, with many teachers having dedicated over 30 years of service to this institution.</p>
+          <div style="margin-top:1rem;">
+            <span class="tag-pill">Highly Qualified</span>
+            <span class="tag-pill">30+ Year Veterans</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="board-wrap fade-in">
+      <div class="board-quote">
+        <p>"The college is managed by an educated, cultured, and skilled administrative board — free from individual dominance — operating with well-structured plans and a long-term vision for Islamic education."</p>
+      </div>
+      <div class="board-grid">
+        <div class="bm"><h4>Al-Haj A.D. Abdur Ravoof</h4><p>VICE CHAIRMAN</p></div>
+        <div class="bm"><h4>Al-Haj A.S.M. Fais</h4><p>SECRETARY</p></div>
+        <div class="bm"><h4>Al-Haj Al-Alim N.L.M. Farook</h4><p>TREASURER</p></div>
+        <div class="bm"><h4>Administrative Board</h4><p>COLLECTIVE LEADERSHIP</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ ACHIEVEMENTS ═══════════════════ -->
+<section class="achievements" id="achievements">
+  <div class="sec" style="position:relative;">
+    <div class="fade-in">
+      <div class="tag-row"><span style="color:rgba(196,150,42,.75)">OUR ACHIEVEMENTS</span></div>
+      <h2 class="sec-title">Decades of <em style="color:var(--gold)">Excellence</em></h2>
+      <p class="sec-sub">Three decades of educational achievement, spiritual milestones, and a legacy of scholars serving across Sri Lanka and beyond.</p>
+    </div>
+    <div class="ach-grid fade-in">
+      <div class="ach-s"><span class="ach-n">30<sup style="font-size:1.5rem">+</sup></span><span class="ach-l">YEARS OF EXCELLENCE</span></div>
+      <div class="ach-s"><span class="ach-n">250</span><span class="ach-l">CURRENT STUDENTS</span></div>
+      <div class="ach-s"><span class="ach-n">20<sup style="font-size:1.5rem">+</sup></span><span class="ach-l">QUALIFIED TEACHERS</span></div>
+      <div class="ach-s"><span class="ach-n">100<sup style="font-size:1.5rem">+</sup></span><span class="ach-l">GRADUATE SCHOLARS</span></div>
+    </div>
+    <div class="ach-feat fade-in">
+      <div class="af">
+        <div class="af-tag">FIRST IN SRI LANKA</div>
+        <h3>Pioneering Excellence</h3>
+        <p>An-Noor Arabic College holds the distinction of being the first Arabic college in Sri Lanka to integrate a comprehensive Hifz program with modern Islamic education — a landmark achievement that has set the national standard for Islamic institutions.</p>
+      </div>
+      <div class="af">
+        <div class="af-tag">NATIONAL RECOGNITION</div>
+        <h3>Award for Educational Innovation</h3>
+        <p>Recognized for outstanding contributions to religious education and maintaining the highest standards of Islamic scholarship. Our alumni serve as imams, teachers, and community leaders across Sri Lanka, with several receiving prestigious scholarships to Al-Azhar University, Egypt.</p>
+      </div>
+    </div>
+    <!-- Achievement photos row -->
+    <div class="ach-img-row fade-in">
+      <img class="ach-img"
+        src="Ach01.jpg"
+        alt="Graduation ceremony" onerror="this.style.background='rgba(196,150,42,.1)'">
+      <img class="ach-img"
+        src="GRADUATION.jpeg"
+        alt="Community and students" onerror="this.style.background='rgba(196,150,42,.1)'">
+      <img class="ach-img"
+        src="demo01.jpg"
+        alt="School campus" onerror="this.style.background='rgba(196,150,42,.1)'">
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CONTACT ═══════════════════ -->
+<section class="contact" id="contact">
+  <div class="sec">
+    <div class="fade-in">
+      <div class="tag-row"><span>GET IN TOUCH</span></div>
+      <h2 class="sec-title">Connect <em>With Us</em></h2>
+      <p class="sec-sub">Learn more about our programs and begin your journey in Islamic education. Admissions for 2026 are now open.</p>
+    </div>
+    <div class="contact-grid">
+      <!-- Info column -->
+      <div class="fade-in-l">
+        <div class="cinfo"><div class="cinfo-lbl">LOCATION</div><div class="cinfo-val">Siyambalagasakotuwa</div><div class="cinfo-sub">Kurunegala District, North Western Province, Sri Lanka</div></div>
+        <div class="cinfo"><div class="cinfo-lbl">PHONE</div><div class="cinfo-val">+94 37 22 47895</div><div class="cinfo-sub">Call for admission inquiries — Mon to Fri, 8AM–5PM</div></div>
+        <div class="cinfo"><div class="cinfo-lbl">EMAIL</div><div class="cinfo-val">info@annoor.lk</div><div class="cinfo-sub">Send detailed inquiries and receive a prompt response</div></div>
+        <div class="cinfo"><div class="cinfo-lbl">OFFICE HOURS</div><div class="cinfo-val">Monday – Friday · 8AM–5PM</div><div class="cinfo-sub">Saturday by appointment only</div></div>
+        <!-- Sri Lanka map / aerial view -->
+        <img class="cmap-img"
+          src="jslslullshmsq.jpeg"
+          alt="Sri Lanka North Western Province"
+          onerror="this.style.background='var(--cream-2)'">
+        <div style="background:var(--emerald);padding:1.4rem;border-radius:3px;margin-top:1rem;border-left:3px solid var(--gold);">
+          <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.05rem;color:var(--gold-light);line-height:1.6;">Admissions for 2026 are now open. Join a legacy of Islamic scholarship spanning over three decades of excellence in Sri Lanka.</p>
+        </div>
+      </div>
+      <!-- Form -->
+      <div class="cform fade-in-r">
+        <h3>Admission Inquiry</h3>
+        <div class="fr">
+          <div class="fg"><label>FULL NAME</label><input type="text" placeholder="Your full name"></div>
+          <div class="fg"><label>PHONE NUMBER</label><input type="tel" placeholder="+94 xx xxx xxxx"></div>
+        </div>
+        <div class="fg"><label>EMAIL ADDRESS</label><input type="email" placeholder="your@email.com"></div>
+        <div class="fg">
+          <label>PROGRAM OF INTEREST</label>
+          <select>
+            <option value="">Select a program</option>
+            <option>Hifz Program (Qur'an Memorization)</option>
+            <option>Full 9-Year Comprehensive Program</option>
+            <option>Shari'ah Studies</option>
+            <option>General Inquiry</option>
+          </select>
+        </div>
+        <div class="fg"><label>YOUR MESSAGE</label><textarea placeholder="Write your inquiry or message here..."></textarea></div>
+        <button class="fsub" id="submitBtn">SEND INQUIRY →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-inner">
+      <div class="fgrid">
+        <div class="fb">
+          <h2>الكلية النور العربية</h2>
+          <div class="since">ANNOOR ARABIC COLLEGE · EXCELLENCE IN ISLAMIC EDUCATION</div>
+          <p>Established in 1990, we have been nurturing Islamic scholars and promoting Islamic knowledge for over three decades — a beacon of traditional Islamic education in Sri Lanka.</p>
+          <div class="fstats">
+            <div class="fst"><strong>30+</strong><span>Years</span></div>
+            <div class="fst"><strong>250+</strong><span>Students</span></div>
+            <div class="fst"><strong>600+</strong><span>Scholars</span></div>
+          </div>
+        </div>
+        <div class="fcol">
+          <h4>QUICK LINKS</h4>
+          <a href="#about">About Us</a>
+          <a href="#academics">Academic Programs</a>
+          <a href="#facilities">Facilities</a>
+          <a href="#administration">Administration</a>
+          <a href="#achievements">Achievements</a>
+          <a href="#contact">Contact Us</a>
+        </div>
+        <div class="fcol">
+          <h4>PROGRAMS</h4>
+          <a href="#academics">Al-Qur'an Mmemorization Program</a>
+          <a href="#academics">Islamic Studies(Al-Aaalim)</a>
+          <a href="#academics">G.C.E. O/L &amp; A/L</a>
+          <a href="#academics">Computer Diploma</a>
+          <a href="#academics">Arabic Language</a>
+          <a href="#academics">Islamic Jurisprudence</a>
+        </div>
+        <div class="fcol">
+          <h4>CONTACT</h4>
+          <p>Siyambalagasakotuwa</p>
+          <p>Kurunegala District</p>
+          <p>North Western Province</p>
+          <p>Sri Lanka</p>
+          <p style="margin-top:.75rem;color:var(--gold-light);">+94 37 22 47895</p>
+          <p style="color:var(--gold-light);">info@annoor.lk</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <div class="fbot-inner">
+      <p class="fcopy">© 2024 An-Noor Arabic College. All rights reserved.</p>
+      <p class="fcopy">Privacy · Terms · Accessibility</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+window.addEventListener('scroll',()=>{
+  const n=document.getElementById('navbar');
+  if(window.scrollY>60){n.classList.remove('top');n.classList.add('scrolled');}
+  else{n.classList.remove('scrolled');n.classList.add('top');}
+});
+
+// Mobile nav
+function openMob(){document.getElementById('mobileNav').classList.add('open');document.body.style.overflow='hidden';}
+function closeMob(){document.getElementById('mobileNav').classList.remove('open');document.body.style.overflow='';}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+  });
+});
+
+// Scroll reveal with stagger
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*85);}
+  });
+},{threshold:.07});
+document.querySelectorAll('.fade-in,.fade-in-l,.fade-in-r').forEach(el=>io.observe(el));
+
+// Form
+document.getElementById('submitBtn').addEventListener('click',function(){
+  this.textContent='INQUIRY SENT ✓';
+  this.style.background='#245A47';
+  this.style.color='#E8C96A';
+  setTimeout(()=>{this.textContent='SEND INQUIRY →';this.style.background='';this.style.color='';},3500);
+});
+</script>
+</body>
+</html>
